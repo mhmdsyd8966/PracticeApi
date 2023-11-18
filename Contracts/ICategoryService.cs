@@ -1,8 +1,7 @@
-﻿
-using WebApi.Iservices.Dto;
-using WebApi.Models;
+﻿using Contracts.Dto;
+using Entity;
 
-namespace WebApi.Iservices
+namespace Contracts
 {
     public interface ICategoryService
     {

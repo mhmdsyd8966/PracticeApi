@@ -1,6 +1,6 @@
-﻿using WebApi.Iservices.Dto;
+﻿using Contracts.Dto;
 
-namespace WebApi.Iservices
+namespace Contracts
 {
     public interface ILoginService
     {

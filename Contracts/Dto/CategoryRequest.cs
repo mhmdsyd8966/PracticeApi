@@ -1,6 +1,6 @@
-﻿using WebApi.Models;
+﻿using Entity;
 
-namespace WebApi.Iservices.Dto
+namespace Contracts.Dto
 {
     public class CategoryRequest
     {

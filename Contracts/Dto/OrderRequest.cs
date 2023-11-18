@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebApi.Iservices.Dto
+namespace Contracts.Dto
 {
     public class OrderRequest
     {
@@ -9,6 +9,6 @@ namespace WebApi.Iservices.Dto
         [Required]
         public string Address1 { get; set; }
         public string? Address2 { get; set; }
-        
+
     }
 }

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Identity.Client;
 
-namespace WebApi.Iservices.Dto
+namespace Contracts.Dto
 {
     public class UserLogin
     {
