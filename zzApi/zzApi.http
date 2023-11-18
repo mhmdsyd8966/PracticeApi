@@ -1,0 +1,6 @@
+@zzApi_HostAddress = http://localhost:5163
+
+GET {{zzApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
