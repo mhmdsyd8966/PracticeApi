@@ -10,7 +10,7 @@ namespace WebApi.Models
         public string Description { get; set; }
         public int stock { get; set; }
         [ForeignKey("Seller")]
-        public string SellerId { get; set; }
+        public int SellerId { get; set; }
         public Users Seller { get; set; }
         public List<Rate> ProductRates { get; set; }
         public Category ProductCategory { get; set; }
