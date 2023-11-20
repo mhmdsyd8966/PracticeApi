@@ -7,5 +7,6 @@ namespace zzApi.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
+
     }
 }

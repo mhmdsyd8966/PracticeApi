@@ -10,6 +10,6 @@ namespace Entity
         [ForeignKey("MyCart")]
         public int CartId { get; set; }
         public Cart MyCart { get; set; }
-        public List<Rate> MyRates { get; set; }
+        public List<Rate> MyRates { get; set; } 
     }
 }
