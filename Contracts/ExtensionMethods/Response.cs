@@ -23,5 +23,15 @@ namespace Contracts.ExtensionMethods
                 stock = product.stock
             };
         }
+        public static Category ToResponse(this Category category)
+        {
+            return new Category
+            {
+                Id = category.Id,
+                Name = category.Name,
+            };
+        }
+
+
     }
 }

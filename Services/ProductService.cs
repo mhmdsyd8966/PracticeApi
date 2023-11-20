@@ -24,6 +24,7 @@ namespace Services
         {
             var product = request.ToProduct();
             _context.products.Add(product);
+            _context.SaveChanges();
             var response = product.ToResponse(GetProductRate(product.Id), product.ProductCategory.Name);
             return Task.FromResult(response);
         }
