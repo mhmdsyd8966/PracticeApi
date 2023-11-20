@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApi.Models
 {
@@ -11,6 +12,8 @@ namespace WebApi.Models
         public string Password { get; set; }
         public string Phone { get; set; }
         public string Role { get; set; }
+        [Required]
+        public string Address { get; set; }
         public List<Product>? SellerProducts { get; set; }
         [ForeignKey("MyCart")]
         public int CartId { get; set; }
