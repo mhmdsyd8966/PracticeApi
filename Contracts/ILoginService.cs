@@ -1,10 +1,11 @@
 ﻿using WebApi.Iservices.Dto;
+using WebApi.Models;
 
 namespace WebApi.Iservices
 {
     public interface ILoginService
     {
-        public Task<UserLogin> Login(UserLogin login);
+        public Task<Users> Login(UserLogin login);
 
     }
 }
