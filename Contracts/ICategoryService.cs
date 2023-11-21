@@ -8,7 +8,7 @@ namespace WebApi.Iservices
     {
         public Task<List<Category>> GetCategoriesAsync();
         public Task<Category> AddCategory(CategoryRequest request);
-        public Task<Category> EditCategory(int id, CategoryRequest request)
+        public Task<Category> EditCategory(int id, CategoryRequest request);
         public Task<Category> DeleteCategory(int id);
     }
 }

@@ -13,7 +13,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Services
 {
-    internal class ProductService : IProductService
+    public class ProductService : IProductService
     {
         private readonly ApplicationDbContext _context;
         public ProductService(ApplicationDbContext context)
@@ -42,7 +42,7 @@ namespace Services
         public Task<ProductResponse> EditProduct(int id,ProductRequest request)
         {
             var product = _context.products.FirstOrDefault(x => x.Id == id);
-            if (product != null)
+            if (product == null)
                 throw new ArgumentException(nameof(product));
             product.Price = request.Price;
             product.Description = request.Description;
@@ -68,9 +68,9 @@ namespace Services
                 _context.products
                 .Where(x=>x.Id==id)
                 .Include("OrderedList")
-                .Select(x=>x.OrderedList)
-                .Count();
-            return ordersCount;
+                .Select(x=>x.OrderedList);
+
+            return ordersCount.Count();
         }
 
         public Task<ProductResponse> GetProductById(int id)
@@ -83,13 +83,17 @@ namespace Services
 
         public double GetProductRate(int id)
         {
-            var ordersCount =
-                _context.products
-                .Where(x => x.Id == id)
-                .Include("ProductRates")
-                .Select(x => x.ProductRates).FirstOrDefault().Select(x=>x.rate);
-            
-            return ordersCount.Sum()/ordersCount.Count();
+            var productRates = _context.products
+                                .Where(x => x.Id == id)
+                                .Include("ProductRates")
+                                .Select(x => x.ProductRates)
+                                .FirstOrDefault();
+            if (productRates == null) 
+                throw new ArgumentException(nameof(productRates));
+
+            var rates = productRates.Select(x => x.rate);
+
+            return rates.Sum()/ rates.Count();
         }
     }
 }
