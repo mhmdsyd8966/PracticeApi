@@ -58,5 +58,13 @@ namespace Services
                 response.Add(category.ToResponse());
             return Task.FromResult(response);
         }
+
+        public Task<Category> GetCategory(int id)
+        {
+            var category = _context.categories.Find(id);
+            if (category == null)
+                throw new ArgumentException(nameof(category));
+            return Task.FromResult(category.ToResponse());
+        }
     }
 }
